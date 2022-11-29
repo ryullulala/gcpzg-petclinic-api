@@ -9,16 +9,10 @@ steps:
   # Push the container image to Artifact Registry
 images:
   - '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPO}/spring-petclinic-api-gateway:$SHORT_SHA'
-#  - name: 'gcr.io/cloud-builders/docker'
-#    args: [ 'push', 'asia-northeast3-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPO}/spring-petclinic-api-gateway:$SHORT_SHA' ]
 
 # Build Logging
-logsBucket: 'cloud_logs9'
 options:
-  logging: GCS_ONLY
-
-
-
+  logging: CLOUD_LOGGING_ONLY
 
 
 #    - name: 'gcr.io/cloud-builders/docker'
