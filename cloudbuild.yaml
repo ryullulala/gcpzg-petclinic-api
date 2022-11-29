@@ -5,7 +5,7 @@ steps:
     args: ['clean','install','-PbuildDocker']
   # Tagging
   - name: 'gcr.io/cloud-builders/docker'
-    args: [ 'build', '-t', 'asia-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPO}/spring-petclinic-api-gateway:$SHORT_SHA', 'asia-northeast3-docker.pkg.dev/hyunyoung-01-368306/gcpzg/spring-petclinic-api-gateway']
+    args: [ 'tag', 'asia-northeast3-docker.pkg.dev/hyunyoung-01-368306/gcpzg/spring-petclinic-api-gateway', 'asia-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPO}/spring-petclinic-api-gateway:$SHORT_SHA']
   # Push the container image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
     args: [ 'push', 'asia-northeast3-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPO}/spring-petclinic-api-gateway:$SHORT_SHA' ]
